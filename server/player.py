@@ -1,13 +1,13 @@
 class Player(object):
-    def __init__(self,ip:str,name:str):
-        self.ip=ip
-        self.name=name
-        self.score=0
+    def __init__(self, ip: str, name: str):
+        self.ip = ip
+        self.name = name
+        self.score = 0
 
-    def update_score(self,x:int):
-        self.score+=x
+    def update_score(self, x: int):
+        self.score += x
 
-    def guess(self,guess:str):
+    def guess(self, guess: str):
         pass
 
     def disconnect(self):
@@ -21,4 +21,3 @@ class Player(object):
 
     def get_name(self):
         return self.name
-

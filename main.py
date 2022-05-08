@@ -1,4 +1,4 @@
-def solution(n):
+"""def solution(n):
     lst = [2]
     for i in range(3, 10001, 2):
         if (i > 10) and (i % 10 == 5):
@@ -18,3 +18,4 @@ def solution(n):
 if __name__ == "__main__":
     i = input("Draw number from a hat: ")
     print(solution((int)(i)))
+    """
