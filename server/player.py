@@ -1,5 +1,8 @@
+from .game import Game
+
 class Player(object):
     def __init__(self, ip: str, name: str):
+        self.game=None
         self.ip = ip
         self.name = name
         self.score = 0

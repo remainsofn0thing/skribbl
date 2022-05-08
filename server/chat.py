@@ -1,9 +1,12 @@
+from .round import Round
+
 class Chat(object):
 
-    def __init__(self):
+    def __init__(self, r):
         self.content = list()
+        self.round = r
 
-    def update_chat(self,msg):
+    def update_chat(self, msg):
         self.content.append(msg)
 
     def get_chat(self):
@@ -17,4 +20,3 @@ class Chat(object):
 
     def __repr__(self):
         return str(self)
-
