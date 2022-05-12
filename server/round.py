@@ -19,7 +19,7 @@ class Round(object):
         self.skips = 0
         self.player_scores = {player: 0 for player in players}
         self.time = 75
-        self.chat=Chat(self)
+        self.chat = Chat(self)
         start_new_thread(self.time_thread, ())
 
     def skip(self):
@@ -27,10 +27,27 @@ class Round(object):
         returns true if round skipped threshold met
         :return:bool
         """
-        self.skips+=1
-        if self.skips>len(self.players)-2:
+        self.skips += 1
+        if self.skips > len(self.players) - 2:
             return True
         return False
+
+    def get_scores(self):
+        """
+        :return:all player scores
+        """
+        return self.scores
+
+    def get_score(self,player):
+        """
+        gets players scores
+        :param player:Player
+        :return:int
+        """
+        if player in self.player_scores:
+            return self.player_scores[player]
+        else:
+            raise Exception("player not in score list playrs")
 
     def time_thread(self):
         """

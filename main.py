@@ -19,3 +19,6 @@ if __name__ == "__main__":
     i = input("Draw number from a hat: ")
     print(solution((int)(i)))
     """
+players=["a","b","c","d"]
+player_scores = {player: 0 for player in players}
+print(player_scores)

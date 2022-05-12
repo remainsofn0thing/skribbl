@@ -5,7 +5,7 @@ from .round import Round
 
 class Game(object):
 
-    def __init__(self, id, players):
+    def __init__(self, id, players,thread):
         """
         init the game
         once player threshold is met
@@ -16,8 +16,9 @@ class Game(object):
         self.players = players
         self.words_used = list()
         self.round = None
-        self.board = None
+        self.board = Board()
         self.player_draw_ind = 0  # will be inc when round_ended
+        self.connected_thread = thread
         self.start_new_round()
 
     def start_new_round(self):
@@ -60,12 +61,33 @@ class Game(object):
             raise Exception("No round started yet")
 
     def round_ended(self):
+        """
+        if round ends call this
+        :return: None
+        """
+        self.start_new_round()
+        self.board.clear()
         pass
 
     def end_game(self):
+        """
+        ends the game
+        :return:
+        """
+        # TODO воплотить
         pass
 
-    def update_board(self):
+    def update_board(self, x, y, color):
+        """
+        calls update method on board
+        :param x: int
+        :param y: int
+        :param color:(int,int,int)
+        :return:None
+        """
+        if not self.board():
+            raise Exception("boardd not created")
+        self.board.update(x, y, color)
         pass
 
     def get_word(self):
