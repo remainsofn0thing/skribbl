@@ -6,7 +6,7 @@ from .chat import Chat
 
 class Round(object):
 
-    def __init__(self, word, player_drawing, players):
+    def __init__(self, word, player_drawing, players, game):
         """
         init object
         :param word: str
@@ -38,7 +38,7 @@ class Round(object):
         """
         return self.scores
 
-    def get_score(self,player):
+    def get_score(self, player):
         """
         gets players scores
         :param player:Player

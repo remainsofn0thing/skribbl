@@ -5,7 +5,7 @@ from .round import Round
 
 class Game(object):
 
-    def __init__(self, id, players,thread):
+    def __init__(self, id, players, thread):
         """
         init the game
         once player threshold is met
@@ -26,7 +26,7 @@ class Game(object):
         Starts a new round with a new wrod
         :return: None
         """
-        self.round = Round(self.get_word(), self.players[self.player_draw_ind])
+        self.round = Round(self.get_word(), self.players[self.player_draw_ind], self.players, self)
         self.player_draw_ind += 1
 
         if self.player_draw_ind >= len(self.players):
@@ -40,7 +40,7 @@ class Game(object):
         :param guess:Str
         :return:bool
         """
-        pass
+        return self.round.guess(player, guess)
 
     def player_disconnected(self, player):
         """
