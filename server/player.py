@@ -2,7 +2,7 @@ from .game import Game
 
 
 class Player(object):
-    def __init__(self, ip: str, name: str):
+    def __init__(self, ip, name):
         """
         init the player obj
         :param ip: str
@@ -21,7 +21,7 @@ class Player(object):
         """
         self.game = game
 
-    def update_score(self, x: int):
+    def update_score(self, x):
         """
         updates a players socre
         :param x: int
@@ -40,9 +40,9 @@ class Player(object):
     def disconnect(self):
         """
         call to disconnet player
-        :return:
+        :return:None
         """
-        pass
+        self.game.player_disconnected(self)
 
     def get_ip(self):
         """
