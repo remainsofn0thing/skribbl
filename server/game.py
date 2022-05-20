@@ -19,7 +19,6 @@ class Game(object):
         self.round = None
         self.board = Board()
         self.player_draw_ind = 0  # will be inc when round_ended
-        self.connected_thread = thread
         self.start_new_round()
 
     def start_new_round(self):
