@@ -6,7 +6,7 @@ import random
 
 class Game(object):
 
-    def __init__(self, id, players, thread):
+    def __init__(self, id, players):
         """
         init the game
         once player threshold is met
@@ -115,5 +115,5 @@ class Game(object):
                     words.append(wrd)
             self.words_used.add(wrd)
             # words = file.readlines()  # Return all lines in the file, as a list where each line is an item in the list object:
-            r = random.randint(0, len(words))
+            r = random.randint(0, len(words)-1)
             return words[r].strip()  # Remove spaces at the beginning and at the end of the string:

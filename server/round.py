@@ -1,5 +1,6 @@
 import time as t
 from _thread import *
+import threading
 from .game import Game
 from .chat import Chat
 
@@ -19,8 +20,9 @@ class Round(object):
         self.skips = 0
         self.player_scores = {player: 0 for player in players}
         self.time = 75
+        self.game=game
         self.chat = Chat(self)
-        start_new_thread(self.time_thread, ())
+        threading.Timer(1,self.time_thread)
 
     def skip(self):
         """
@@ -54,10 +56,9 @@ class Round(object):
         runs in thread to keeptrack of time
         :return:None
         """
-        while self.time > 0:
-            t.sleep(1)
-            self.time -= 1
-        self.end_round("Time is up")
+        self.time -= 1
+        if self.time <= 0:
+            self.end_round("Time is up")
 
     def guess(self, player, wrd):
         """
